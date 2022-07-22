@@ -77,7 +77,6 @@ namespace discord_cli
     public class Login_Request_Item {
         public string? login;
         public string? password;
-        public string x_super_properties = "eyJvcyI6IkxpbnV4IiwiYnJvd3NlciI6IkRpc2NvcmQgQ2xpZW50IiwicmVsZWFzZV9jaGFubmVsIjoic3RhYmxlIiwiY2xpZW50X3ZlcnNpb24iOiIwLjAuMTgiLCJvc192ZXJzaW9uIjoiNS4xOC41LXplbjEtMS16ZW4iLCJvc19hcmNoIjoieDY0Iiwic3lzdGVtX2xvY2FsZSI6ImVuLVVTIiwid2luZG93X21hbmFnZXIiOiJ1bmtub3duLHVua25vd24iLCJkaXN0cm8iOiJcIkdhcnVkYSBMaW51eFwiIiwiY2xpZW50X2J1aWxkX251bWJlciI6MTM3MDk1LCJjbGllbnRfZXZlbnRfc291cmNlIjpudWxsfQ==";
     }
 
     public class Login_Respone_Item {
