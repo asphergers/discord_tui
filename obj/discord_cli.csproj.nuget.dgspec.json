@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/anthonyb/projects/discord_cli/discord_cli.csproj": {}
+  },
+  "projects": {
+    "/home/anthonyb/projects/discord_cli/discord_cli.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/anthonyb/projects/discord_cli/discord_cli.csproj",
+        "projectName": "discord_cli",
+        "projectPath": "/home/anthonyb/projects/discord_cli/discord_cli.csproj",
+        "packagesPath": "/home/anthonyb/.nuget/packages/",
+        "outputPath": "/home/anthonyb/projects/discord_cli/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/anthonyb/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.emzi0767.com/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Terminal.Gui": {
+              "target": "Package",
+              "version": "[1.6.4, )"
+            },
+            "Websocket.Client": {
+              "target": "Package",
+              "version": "[4.4.43, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.2, 6.0.2]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
