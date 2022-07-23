@@ -1,8 +1,9 @@
 using Newtonsoft.Json;
+using System.Text;
 
 namespace discord_cli.Discord {
     public class Guild_Channel {
-        HttpClient httpClient;
+        public HttpClient httpClient;
         public List<Message_Item> messages = new List<Message_Item>();
         public Guild_Channel_Item channel_info;
         public Guild_Channel(Guild_Channel_Item info, HttpClient httpClient) { 
@@ -37,6 +38,21 @@ namespace discord_cli.Discord {
         public override string? ToString()
         {
             return channel_info.name;
+        }
+
+        public async Task send_message(string message) {
+            string post_url = $"https://discord.com/api/v9/channels/{this.channel_info.id}/messages";
+            Send_Message_Item request = new Send_Message_Item() {
+                content = message,
+                tts = false
+            };
+
+            string raw_json = JsonConvert.SerializeObject(request);
+            var json = new StringContent(raw_json, Encoding.UTF8, "application/json");
+
+            var response = await httpClient.PostAsync(post_url, json);
+
+            string response_json = await response.Content.ReadAsStringAsync();
         }
     }
 }

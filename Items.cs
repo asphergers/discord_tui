@@ -23,6 +23,7 @@ namespace discord_cli
         public int? position;
         public string? parent_id;
         public string? topic;
+        public string? parent_name;
 
         public override string ToString() {
             return name;
@@ -68,6 +69,11 @@ namespace discord_cli
         public int op;
         public Data? d;
 
+    }
+
+    public class Send_Message_Item {
+        public string? content;
+        public bool? tts;
     }
 
     public class Data {

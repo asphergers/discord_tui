@@ -20,6 +20,7 @@ namespace discord_cli.GUI {
         }
 
         public override async Task update(Guild guild) {
+            base.Title = $"{guild.info.name} Channels";
            core_list.SetSource(await guild.get_channels());
         }
     }

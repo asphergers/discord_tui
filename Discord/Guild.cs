@@ -20,6 +20,8 @@ namespace discord_cli.Discord {
                 if (channel.id == null) {
                     channel.id = "no id";
                 }
+
+                channel.parent_name = this.info.name;
                 this.channels.Add(channel.id ,new Guild_Channel(channel, httpClient));
             }
 
