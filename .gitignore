@@ -1,4 +1,4 @@
-/config/autoconfig.json
+/config/autoconfig.json/
 log/
-/bin
+bin/
 /.git
