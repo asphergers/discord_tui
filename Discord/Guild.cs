@@ -21,6 +21,10 @@ namespace discord_cli.Discord {
                     channel.id = "no id";
                 }
 
+                if (channel.parent_id == null) {
+                    channel.name = $"#{channel.name}#";
+                }
+
                 channel.parent_name = this.info.name;
                 this.channels.Add(channel.id ,new Guild_Channel(channel, httpClient));
             }
@@ -31,15 +35,54 @@ namespace discord_cli.Discord {
         }
 
         private void sort_channels() {
-            for (int i = 0; i<this.sorted_channels.Count; i++) {
-                for (int j = 0; j<this.sorted_channels.Count-1-i; j++) {
-                    if (sorted_channels[j].channel_info.position > sorted_channels[j+1].channel_info.position) {
-                        Guild_Channel temp = this.sorted_channels[j];
-                        this.sorted_channels[j] = this.sorted_channels[j+1];
-                        this.sorted_channels[j+1] = temp;
+            List<Guild_Channel> parent_ids = new List<Guild_Channel>();
+            List<Guild_Channel> final_sorted = new List<Guild_Channel>();
+
+            
+            foreach (Guild_Channel channel in this.sorted_channels) {
+                if (channel.channel_info.parent_id == null) {
+                    parent_ids.Add(channel);
+                }
+            }
+
+            for (int i = 0; i < parent_ids.Count; i++) {
+                for (int j = 0; j < parent_ids.Count - 1 - i; j++) {
+                    if (parent_ids[j].channel_info.position > parent_ids[j+1].channel_info.position) {
+                        Guild_Channel temp = parent_ids[j];
+                        parent_ids[j] = parent_ids[j + 1];
+                        parent_ids[j + 1] = temp;
                     }
                 }
             }
+
+            for (int i = 0; i < parent_ids.Count; i++) {
+                final_sorted.Add(parent_ids[i]);
+                List<Guild_Channel> temp = new List<Guild_Channel>();
+
+                for (int j = 0; j < this.sorted_channels.Count; j++) {
+                    if (this.sorted_channels[j].channel_info.parent_id != null) {
+                        if (this.sorted_channels[j].channel_info.parent_id == parent_ids[i].channel_info.id) {
+                            temp.Add(this.sorted_channels[j]);
+                            this.sorted_channels.RemoveAt(j);
+                            j--;
+                        }
+                    }
+                }
+
+                for (int k = 0; k < temp.Count; k++) {
+                    for (int l = 0; l < temp.Count - 1 - k; l++) {
+                        if (temp[l].channel_info.position > temp[l + 1].channel_info.position) {
+                            Guild_Channel t = temp[l];
+                            temp[l] = temp[l + 1];
+                            temp[l + 1] = t;
+                        }
+                    }
+                }
+
+                final_sorted.AddRange(temp);
+            }
+
+            this.sorted_channels = final_sorted;
         }
 
         public async Task init() {
