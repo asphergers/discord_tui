@@ -17,7 +17,6 @@ Visual notifications (i.e. starts being appended to the end of channel / dm name
 #
 
 # Bugs / Known Issues
-Channels aren't properly sorted when looking at a guild (X). <br>
 The keybindings for navigation work by having a menu bar with keybindings that sits out of view, this is simply tacky (X). <br>
 #
 
